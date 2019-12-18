@@ -15,8 +15,8 @@
 
 import argparse
 
-_DEFAULT_OBSERVATION_DIM = 256
-
+#_DEFAULT_OBSERVATION_DIM = 256
+_DEFAULT_OBSERVATION_DIM = 13
 
 def str2bool(value):
   """A function to convert string to bool value."""
@@ -110,6 +110,11 @@ def parse_arguments():
       type=str2bool,
       help='Whether we should use CUDA if it is avaiable. If False, we will '
       'always use CPU.')
+  model_parser.add_argument(
+      '--model_name',
+      default='models/PV_model.uisrnn',
+      type=str,
+      help='Model name to be used for saving or loading models.')
 
   # training configurations
   training_parser = argparse.ArgumentParser(
